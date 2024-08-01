@@ -46,7 +46,8 @@ app.post('/upload/link', upload.single('file'), (req, res) => {
   res.status(200).json({
     message: 'File uploaded successfully.',
     filename: req.file.filename,
-    link: `https://generatefilelink.onrender.com/uploads/${req.file.filename}`
+    link: `https://generatefilelink.onrender.com/uploads/${req.file.filename}`,
+    allLinks: `https://generatefilelink.onrender.com/`,
   })
 });
 
