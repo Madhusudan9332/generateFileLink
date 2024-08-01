@@ -37,8 +37,17 @@ app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
   }
-
   res.redirect('/');
+});
+app.post('/upload/link', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.');
+  }
+  res.status(200).json({
+    message: 'File uploaded successfully.',
+    filename: req.file.filename,
+    link: `https://generatefilelink.onrender.com/uploads/${req.file.filename}`
+  })
 });
 
 // Route to list uploaded files
